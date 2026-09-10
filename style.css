@@ -216,7 +216,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero-meta {
     display: flex; flex-wrap: wrap; gap: 8px;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--color-text-light);
     margin-bottom: var(--space-lg);
     letter-spacing: 0.02em;
@@ -244,21 +244,21 @@ img { max-width: 100%; height: auto; display: block; }
 
 .school-name {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-primary);
     letter-spacing: 0.03em;
 }
 
 .school-detail {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--color-text-light);
 }
 
 .hero-contact {
     display: flex; flex-wrap: wrap; gap: 8px;
     font-family: var(--font-mono);
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-text-muted);
     letter-spacing: 0.02em;
 }

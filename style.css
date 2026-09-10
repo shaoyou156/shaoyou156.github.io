@@ -1,8 +1,6 @@
-@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css');
-
 /* ========================================
    龚颍成 · 个人主页 · 高级版
-   字体：霞鹜文楷(中文) + Playfair Display(英文标题) + Source Sans 3(英文正文)
+   字体：系统字体 + Playfair Display
    ======================================== */
 
 :root {
@@ -14,15 +12,14 @@
     --color-bg-alt: #F2F0EC;
     --color-card: #FFFFFF;
     --color-text: #1a1a1a;
-    --color-text-light: #555555;
-    --color-text-muted: #888888;
+    --color-text-light: #444444;
+    --color-text-muted: #777777;
     --color-border: #E0DDD8;
     --color-border-light: #EBE9E5;
 
-    /* 字体系统 */
-    --font-cn: "LXGW WenKai", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", serif;
-    --font-display: "Playfair Display", "LXGW WenKai", Georgia, serif;
-    --font-en: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-cn: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --font-display: "Playfair Display", "PingFang SC", Georgia, serif;
+    --font-en: "Source Sans 3", -apple-system, sans-serif;
     --font-mono: "SF Mono", "Fira Code", Monaco, Consolas, monospace;
 
     --space-xs: 0.5rem;
@@ -49,9 +46,10 @@ body {
     font-family: var(--font-cn);
     color: var(--color-text);
     background: var(--color-bg);
-    line-height: 1.7;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    font-weight: 400;
 }
 
 a { color: var(--color-primary); text-decoration: none; transition: var(--transition-fast); }

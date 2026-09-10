@@ -4,6 +4,14 @@
    ======================================== */
 
 @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('fonts/CormorantGaramond-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'LXGWWenKai';
     src: url('fonts/LXGWWenKai-Regular.ttf') format('truetype');
     font-weight: 400;
@@ -451,7 +459,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .edu-year {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     color: var(--color-text-muted);
     letter-spacing: 0.05em;
     padding-top: 6px;
@@ -469,7 +477,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .edu-degree {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text-light);
     margin-bottom: var(--space-md);
 }
@@ -514,7 +522,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .edu-details li {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-text-light);
     padding: 8px 0;
     padding-left: 20px;
@@ -574,14 +582,14 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .exp-role {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--color-accent);
     font-weight: 500;
 }
 
 .exp-date {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.92rem;
     color: var(--color-text-muted);
     letter-spacing: 0.03em;
 }
@@ -596,7 +604,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .exp-tag {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.98rem;
     font-weight: 600;
     color: var(--color-primary);
     letter-spacing: 0.04em;
@@ -604,7 +612,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .exp-body p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--color-text-light);
     line-height: 1.8;
     padding-left: 16px;
@@ -682,7 +690,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .research-block-label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--color-primary);
     margin-bottom: 6px;
@@ -690,7 +698,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .research-block p {
-    font-size: 0.88rem;
+    font-size: 0.98rem;
     color: var(--color-text-light);
     line-height: 1.8;
 }
@@ -743,7 +751,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .leadership-date {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.98rem;
     color: var(--color-text-muted);
     letter-spacing: 0.03em;
     margin-bottom: var(--space-sm);
@@ -751,7 +759,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .leadership-content p {
-    font-size: 0.88rem;
+    font-size: 0.98rem;
     color: var(--color-text-light);
     line-height: 1.7;
 }
@@ -828,7 +836,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .skill-card p {
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     color: var(--color-text-light);
     line-height: 1.7;
 }
@@ -845,7 +853,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer p {
     font-family: var(--font-cn);
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     letter-spacing: 0.05em;
 }
     letter-spacing: 0.1em;

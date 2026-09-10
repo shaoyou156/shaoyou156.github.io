@@ -3,74 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>龚颍成 | 个人简历</title>
+    <title>龚颍成</title>
     <meta name="description" content="龚颍成 - 南京大学档案学学士，中国人民大学信息资源管理硕士">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- 导航 -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">龚颍成</div>
-            <ul class="nav-links">
-                <li><a href="#education">教育</a></li>
-                <li><a href="#experience">实习</a></li>
-                <li><a href="#research">科研</a></li>
-                <li><a href="#leadership">学生工作</a></li>
-                <li><a href="#skills">技能</a></li>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">GYC</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#education" data-section="education">教育</a></li>
+                <li><a href="#experience" data-section="experience">实习</a></li>
+                <li><a href="#research" data-section="research">科研</a></li>
+                <li><a href="#leadership" data-section="leadership">学生工作</a></li>
+                <li><a href="#skills" data-section="skills">技能</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
+            <div class="nav-indicator"></div>
+            <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- 首屏 -->
+    <!-- Hero -->
     <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-photo">
-                    <img src="photo.jpg" alt="龚颍成" class="profile-photo">
+        <div class="container hero-container">
+            <div class="hero-left">
+                <div class="hero-label">Portfolio / 2026</div>
+                <h1 class="hero-name">
+                    <span class="name-line">龚颍成</span>
+                    <span class="name-en">Yingcheng Gong</span>
+                </h1>
+                <div class="hero-divider"></div>
+                <div class="hero-meta">
+                    <span class="meta-item">河南·临颍</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-item">22岁</span>
+                    <span class="meta-sep">·</span>
+                    <span class="meta-item">中共党员</span>
                 </div>
-                <h1>龚颍成</h1>
-                <p class="tagline">籍贯：河南·临颍　|　22岁　|　中共党员</p>
-                <p class="subtitle">南京大学 · 档案学 · 学士</p>
-                <p class="subtitle">中国人民大学 · 信息资源管理（档案学方向） · 硕士</p>
-                <p class="contact-info-hero">18567107325　|　yingcheng_gong@ruc.edu.cn</p>
+                <div class="hero-schools">
+                    <p class="school-item">
+                        <span class="school-name">南京大学</span>
+                        <span class="school-detail">档案学 · 学士</span>
+                    </p>
+                    <p class="school-item">
+                        <span class="school-name">中国人民大学</span>
+                        <span class="school-detail">信息资源管理（档案学方向）· 硕士</span>
+                    </p>
+                </div>
+                <div class="hero-contact">
+                    <span class="contact-item">18567107325</span>
+                    <span class="contact-sep">/</span>
+                    <span class="contact-item">yingcheng_gong@ruc.edu.cn</span>
+                </div>
             </div>
+            <div class="hero-right">
+                <div class="photo-frame">
+                    <img src="photo.jpg" alt="龚颍成" class="profile-photo">
+                    <div class="photo-corner photo-corner-tl"></div>
+                    <div class="photo-corner photo-corner-tr"></div>
+                    <div class="photo-corner photo-corner-bl"></div>
+                    <div class="photo-corner photo-corner-br"></div>
+                </div>
+                <div class="hero-deco-line"></div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </header>
 
     <!-- 教育背景 -->
     <section id="education" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">教育背景</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>中国人民大学</h3>
-                            <span class="timeline-date">2026.09 — 2029.06</span>
-                        </div>
-                        <p class="timeline-subtitle">信息资源管理（档案学方向）· 硕士</p>
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <div class="section-title-wrap">
+                    <span class="section-label">Education</span>
+                    <h2 class="section-title">教育背景</h2>
+                </div>
+            </div>
+            <div class="edu-list">
+                <div class="edu-item" data-reveal>
+                    <div class="edu-year">
+                        <span class="year-start">2026</span>
+                        <span class="year-sep">—</span>
+                        <span class="year-end">2029</span>
+                    </div>
+                    <div class="edu-content">
+                        <h3>中国人民大学</h3>
+                        <p class="edu-degree">信息资源管理（档案学方向）· 硕士</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>南京大学</h3>
-                            <span class="timeline-date">2022.09 — 2026.06</span>
+                <div class="edu-divider"></div>
+                <div class="edu-item edu-item-featured" data-reveal>
+                    <div class="edu-year">
+                        <span class="year-start">2022</span>
+                        <span class="year-sep">—</span>
+                        <span class="year-end">2026</span>
+                    </div>
+                    <div class="edu-content">
+                        <h3>南京大学</h3>
+                        <p class="edu-degree">档案学 · 学士</p>
+                        <div class="edu-stats">
+                            <div class="stat">
+                                <span class="stat-num">4.52</span>
+                                <span class="stat-label">GPA / 5.00</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-num">1<span class="stat-rank">/5</span></span>
+                                <span class="stat-label">专业排名</span>
+                            </div>
                         </div>
-                        <p class="timeline-subtitle">档案学 · 学士</p>
-                        <ul class="timeline-details">
-                            <li>成绩：4.52/5.00　专业排名：1/5</li>
+                        <ul class="edu-details">
                             <li>荣誉奖项：南京大学行知奖学金、国家励志奖学金、国家奖学金、优秀学生干部、优秀共青团员</li>
                             <li>主修课程：档案管理学(90)、科技档案管理学(91)、电子文件管理(92)、电子政务(95)、数字档案馆(95)等</li>
                         </ul>
@@ -83,35 +135,54 @@
     <!-- 实习经历 -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">实习经历</h2>
-            <div class="experience-list">
-                <div class="experience-item">
-                    <div class="experience-main">
-                        <h3>南京大学档案馆</h3>
-                        <p class="experience-role">档案数字化助理</p>
-                        <p class="experience-date">2025.03 — 2025.06</p>
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <div class="section-title-wrap">
+                    <span class="section-label">Experience</span>
+                    <h2 class="section-title">实习经历</h2>
+                </div>
+            </div>
+            <div class="exp-list">
+                <div class="exp-item" data-reveal>
+                    <div class="exp-head">
+                        <div class="exp-org">
+                            <h3>南京大学档案馆</h3>
+                            <span class="exp-role">档案数字化助理</span>
+                        </div>
+                        <div class="exp-date">
+                            <span class="date-start">2025.03</span>
+                            <span class="date-sep">—</span>
+                            <span class="date-end">2025.06</span>
+                        </div>
                     </div>
-                    <div class="experience-desc">
-                        <ul>
-                            <li><strong>教学档案著录：</strong>参与馆藏教学档案（主要是硕博毕业论文）的著录工作，依据档案馆著录规范及数字化加工标准，提取并录入题名、责任者、合作者、院系、页码等核心著录项；</li>
-                            <li><strong>著录校对：</strong>对著录条目开展自查与校对，及时发现并修正错录、漏录信息，确保著录内容规范、完整、准确；</li>
-                        </ul>
+                    <div class="exp-body">
+                        <div class="exp-tag">教学档案著录</div>
+                        <p>参与馆藏教学档案（主要是硕博毕业论文）的著录工作，依据档案馆著录规范及数字化加工标准，提取并录入题名、责任者、合作者、院系、页码等核心著录项；</p>
+                        <div class="exp-tag">著录校对</div>
+                        <p>对著录条目开展自查与校对，及时发现并修正错录、漏录信息，确保著录内容规范、完整、准确；</p>
                     </div>
                 </div>
-
-                <div class="experience-item">
-                    <div class="experience-main">
-                        <h3>南京大学人力资源处</h3>
-                        <p class="experience-role">人事档案实习生</p>
-                        <p class="experience-date">2025.09 — 2025.12</p>
+                <div class="exp-item" data-reveal>
+                    <div class="exp-head">
+                        <div class="exp-org">
+                            <h3>南京大学人力资源处</h3>
+                            <span class="exp-role">人事档案实习生</span>
+                        </div>
+                        <div class="exp-date">
+                            <span class="date-start">2025.09</span>
+                            <span class="date-sep">—</span>
+                            <span class="date-end">2025.12</span>
+                        </div>
                     </div>
-                    <div class="experience-desc">
-                        <ul>
-                            <li><strong>档案移库：</strong>执行中层领导转任普通教职工后的人事档案电子版移库工作，将档案从保密机迁移至人事档案服务器，核对无误后按规定删除原数据，安全合规完成涉密档案迁移；</li>
-                            <li><strong>档案整理：</strong>负责台港澳及外籍教职工档案的整理工作，完成散乱材料按人归集、装盒贴标和按音序排架入库；</li>
-                            <li><strong>质量抽查：</strong>开展档案数字化全流程及散材料抽查，以纸质档案为基准核验电子档案的目录信息准确性、标题与内容一致性、扫描图像质量和著录规范性；</li>
-                            <li><strong>日常事务：</strong>参与教职工档案信息著录，散材料的收集、登记，更新人事档案目录和侧标，协助完成荣休纪念册素材采集与敏感信息脱敏等工作。</li>
-                        </ul>
+                    <div class="exp-body">
+                        <div class="exp-tag">档案移库</div>
+                        <p>执行中层领导转任普通教职工后的人事档案电子版移库工作，将档案从保密机迁移至人事档案服务器，核对无误后按规定删除原数据，安全合规完成涉密档案迁移；</p>
+                        <div class="exp-tag">档案整理</div>
+                        <p>负责台港澳及外籍教职工档案的整理工作，完成散乱材料按人归集、装盒贴标和按音序排架入库；</p>
+                        <div class="exp-tag">质量抽查</div>
+                        <p>开展档案数字化全流程及散材料抽查，以纸质档案为基准核验电子档案的目录信息准确性、标题与内容一致性、扫描图像质量和著录规范性；</p>
+                        <div class="exp-tag">日常事务</div>
+                        <p>参与教职工档案信息著录，散材料的收集、登记，更新人事档案目录和侧标，协助完成荣休纪念册素材采集与敏感信息脱敏等工作。</p>
                     </div>
                 </div>
             </div>
@@ -121,28 +192,41 @@
     <!-- 科研项目 -->
     <section id="research" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">科研项目</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-tag">国家社科基金抗日战争研究专项工程项目</span>
-                    </div>
-                    <h3>日军细菌战海内外史料整理与研究</h3>
-                    <ul class="card-list">
-                        <li><strong>史料转录：</strong>参与子课题"细菌战海内外重要史料搜集与译编"，针对中央档案馆、中国第二历史档案馆、台湾"国史馆"等机构所藏抗战时期与防疫及细菌战相关的各类档案，进行识别、转录与校对，将纸质档案转化为数字化文本。</li>
-                        <li><strong>成果产出：</strong>累计整理20余万字，为项目成果《抗战时期细菌战与防疫战文献集》的第三卷和第四卷《中国藏细菌战与卫生防疫档案》的编校做出了一定贡献。</li>
-                    </ul>
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <div class="section-title-wrap">
+                    <span class="section-label">Research</span>
+                    <h2 class="section-title">科研项目</h2>
                 </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-tag">江苏省省级大学生创新创业训练计划项目</span>
+            </div>
+            <div class="research-grid">
+                <div class="research-card" data-reveal>
+                    <div class="research-card-tag">国家社科基金抗日战争研究专项工程项目</div>
+                    <h3>日军细菌战海内外史料整理与研究</h3>
+                    <div class="research-content">
+                        <div class="research-block">
+                            <span class="research-block-label">史料转录</span>
+                            <p>参与子课题"细菌战海内外重要史料搜集与译编"，针对中央档案馆、中国第二历史档案馆、台湾"国史馆"等机构所藏抗战时期与防疫及细菌战相关的各类档案，进行识别、转录与校对，将纸质档案转化为数字化文本。</p>
+                        </div>
+                        <div class="research-block">
+                            <span class="research-block-label">成果产出</span>
+                            <p>累计整理<strong>20余万字</strong>，为项目成果《抗战时期细菌战与防疫战文献集》的第三卷和第四卷《中国藏细菌战与卫生防疫档案》的编校做出了一定贡献。</p>
+                        </div>
                     </div>
+                </div>
+                <div class="research-card research-card-offset" data-reveal>
+                    <div class="research-card-tag">江苏省省级大学生创新创业训练计划项目</div>
                     <h3>初中生数字素养评价研究</h3>
-                    <ul class="card-list">
-                        <li><strong>指标体系构建：</strong>参与前期文献调研与指标池构建，采用焦点小组法、德尔菲法，向初中生代表、相关领域专家学者、一线初中教师征求了意见，开发出适合我国初中生群体的数字素养评价指标体系。</li>
-                        <li><strong>成果产出：</strong>项目结项等级被评为"优秀"。</li>
-                    </ul>
+                    <div class="research-content">
+                        <div class="research-block">
+                            <span class="research-block-label">指标体系构建</span>
+                            <p>参与前期文献调研与指标池构建，采用焦点小组法、德尔菲法，向初中生代表、相关领域专家学者、一线初中教师征求了意见，开发出适合我国初中生群体的数字素养评价指标体系。</p>
+                        </div>
+                        <div class="research-block">
+                            <span class="research-block-label">成果产出</span>
+                            <p>项目结项等级被评为<span class="highlight">"优秀"</span>。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,19 +235,29 @@
     <!-- 学生工作 -->
     <section id="leadership" class="section">
         <div class="container">
-            <h2 class="section-title">学生工作</h2>
-            <div class="leadership-grid">
-                <div class="leadership-item">
-                    <div class="leadership-icon">📋</div>
-                    <h3>南京大学信息管理学院档案学班班长</h3>
-                    <span class="leadership-date">2024.10 — 2026.06</span>
-                    <p class="leadership-desc">统筹班级日常事务管理，组织班会、学业交流等集体活动，及时传递学院通知与政策，保障班级工作有序运转。</p>
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <div class="section-title-wrap">
+                    <span class="section-label">Leadership</span>
+                    <h2 class="section-title">学生工作</h2>
                 </div>
-                <div class="leadership-item">
-                    <div class="leadership-icon">🎓</div>
-                    <h3>共青团南京大学信息管理学院委员会组织部副部长</h3>
-                    <span class="leadership-date">2023.09 — 2024.09</span>
-                    <p class="leadership-desc">开展团员发展、团组织关系转接和团费收缴等基础团务工作；协助开展"青年大学习"等团内主题教育活动。</p>
+            </div>
+            <div class="leadership-list">
+                <div class="leadership-item" data-reveal>
+                    <div class="leadership-num">01</div>
+                    <div class="leadership-content">
+                        <h3>南京大学信息管理学院档案学班班长</h3>
+                        <span class="leadership-date">2024.10 — 2026.06</span>
+                        <p>统筹班级日常事务管理，组织班会、学业交流等集体活动，及时传递学院通知与政策，保障班级工作有序运转。</p>
+                    </div>
+                </div>
+                <div class="leadership-item" data-reveal>
+                    <div class="leadership-num">02</div>
+                    <div class="leadership-content">
+                        <h3>共青团南京大学信息管理学院委员会组织部副部长</h3>
+                        <span class="leadership-date">2023.09 — 2024.09</span>
+                        <p>开展团员发展、团组织关系转接和团费收缴等基础团务工作；协助开展"青年大学习"等团内主题教育活动。</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -172,31 +266,33 @@
     <!-- 专业技能 -->
     <section id="skills" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">专业技能</h2>
+            <div class="section-header">
+                <span class="section-num">05</span>
+                <div class="section-title-wrap">
+                    <span class="section-label">Skills</span>
+                    <h2 class="section-title">专业技能</h2>
+                </div>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-card" data-reveal>
+                    <div class="skill-icon">En</div>
                     <h3>英语水平</h3>
-                    <ul>
-                        <li>CET-6（519 分），具备良好的英文阅读和写作能力</li>
-                    </ul>
+                    <p>CET-6（519 分），具备良好的英文阅读和写作能力</p>
                 </div>
-                <div class="skill-category">
+                <div class="skill-card" data-reveal>
+                    <div class="skill-icon">证</div>
                     <h3>职业证书</h3>
-                    <ul>
-                        <li>高中历史教师资格证</li>
-                    </ul>
+                    <p>高中历史教师资格证</p>
                 </div>
-                <div class="skill-category">
+                <div class="skill-card" data-reveal>
+                    <div class="skill-icon">Office</div>
                     <h3>软件技能</h3>
-                    <ul>
-                        <li>熟练使用Office办公软件</li>
-                    </ul>
+                    <p>熟练使用 Office 办公软件</p>
                 </div>
-                <div class="skill-category">
+                <div class="skill-card" data-reveal>
+                    <div class="skill-icon">Sys</div>
                     <h3>档案系统实操</h3>
-                    <ul>
-                        <li>熟练使用南京大学档案管理系统（南大智星），具备档案管理系统操作经验</li>
-                    </ul>
+                    <p>熟练使用南京大学档案管理系统（南大智星），具备档案管理系统操作经验</p>
                 </div>
             </div>
         </div>
@@ -205,7 +301,8 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p> 龚颍成</p>
+            <div class="footer-name">龚颍成</div>
+            <div class="footer-schools">南京大学 · 中国人民大学</div>
         </div>
     </footer>
 

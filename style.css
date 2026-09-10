@@ -1,7 +1,39 @@
 /* ========================================
    龚颍成 · 个人主页 · 高级版
-   字体：系统字体 + Playfair Display
+   字体：霞鹜文楷(本地) + Cormorant Garamond(英文标题)
    ======================================== */
+
+@font-face {
+    font-family: 'LXGWWenKai';
+    src: url('fonts/LXGWWenKai-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LXGWWenKai';
+    src: url('fonts/LXGWWenKai-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LXGWWenKai';
+    src: url('fonts/LXGWWenKai-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LXGWWenKaiMono';
+    src: url('fonts/LXGWWenKaiMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     --color-primary: #2E4649;
@@ -17,10 +49,10 @@
     --color-border: #E0DDD8;
     --color-border-light: #EBE9E5;
 
-    --font-cn: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-    --font-display: "Playfair Display", "PingFang SC", Georgia, serif;
-    --font-en: "Source Sans 3", -apple-system, sans-serif;
-    --font-mono: "SF Mono", "Fira Code", Monaco, Consolas, monospace;
+    --font-cn: 'LXGWWenKai', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif;
+    --font-display: "Cormorant Garamond", 'LXGWWenKai', Georgia, serif;
+    --font-en: "Source Sans 3", 'LXGWWenKai', sans-serif;
+    --font-mono: 'LXGWWenKaiMono', "SF Mono", Monaco, Consolas, monospace;
 
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -482,7 +514,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .edu-details li {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     color: var(--color-text-light);
     padding: 8px 0;
     padding-left: 20px;

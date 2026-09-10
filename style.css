@@ -224,6 +224,8 @@ img {
 
 .hero-photo {
     margin-bottom: var(--space-md);
+    display: flex;
+    justify-content: center;
 }
 
 .profile-photo {

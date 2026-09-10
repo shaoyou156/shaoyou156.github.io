@@ -1,6 +1,8 @@
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css');
+
 /* ========================================
    龚颍成 · 个人主页 · 高级版
-   字体混排 + 微交互动效 + 精致配色
+   字体：霞鹜文楷(中文) + Playfair Display(英文标题) + Source Sans 3(英文正文)
    ======================================== */
 
 :root {
@@ -16,10 +18,13 @@
     --color-text-muted: #888888;
     --color-border: #E0DDD8;
     --color-border-light: #EBE9E5;
-    --font-serif: "Noto Serif SC", "Songti SC", STSong, Georgia, serif;
-    --font-sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-    --font-display: "Playfair Display", "Noto Serif SC", Georgia, serif;
+
+    /* 字体系统 */
+    --font-cn: "LXGW WenKai", "Noto Serif SC", "PingFang SC", "Microsoft YaHei", serif;
+    --font-display: "Playfair Display", "LXGW WenKai", Georgia, serif;
+    --font-en: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: "SF Mono", "Fira Code", Monaco, Consolas, monospace;
+
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
@@ -41,7 +46,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-cn);
     color: var(--color-text);
     background: var(--color-bg);
     line-height: 1.7;
@@ -77,32 +82,24 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 64px;
     position: relative;
 }
 
-.logo {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    letter-spacing: 0.12em;
-}
-
 .nav-links {
-    display: flex; list-style: none; gap: 36px;
+    display: flex; list-style: none; gap: 48px;
 }
 
 .nav-links a {
-    font-family: var(--font-sans);
-    font-size: 0.82rem;
+    font-family: var(--font-cn);
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--color-text-light);
     position: relative;
     padding: 0.3rem 0;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
 }
 
 .nav-links a::after {
@@ -243,7 +240,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .school-name {
-    font-family: var(--font-serif);
+    font-family: var(--font-cn);
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -433,7 +430,7 @@ img { max-width: 100%; height: auto; display: block; }
 .year-sep { color: var(--color-border); margin: 0 4px; }
 
 .edu-content h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-cn);
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -538,7 +535,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .exp-org h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-cn);
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -638,7 +635,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .research-card h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-cn);
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -706,7 +703,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .leadership-content h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-cn);
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -792,7 +789,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .skill-card h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-cn);
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-primary);
@@ -817,7 +814,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer p {
-    font-family: var(--font-sans);
+    font-family: var(--font-cn);
     font-size: 0.85rem;
     letter-spacing: 0.05em;
 }

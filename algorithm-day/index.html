@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我被算法安排得明明白白的一天</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF9F0;
+  --paper:#FFFDF8;
+  --ink:#221C15;
+  --muted:#7A6F62;
+  --pink:#FE99D9;
+  --pink-deep:#E8449A;
+  --orange:#FF6502;
+  --orange-soft:#FFB27A;
+  --green:#1F9540;
+  --green-soft:#8FD9A0;
+  --night:#2B2A4A;
+  --serif:'Noto Serif SC','Songti SC','SimSun',serif;
+  --sans:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:#EAE4DA;
+  line-height:1.9;
+}
+/* ===== A4 页面容器 ===== */
+.page{
+  position:relative;
+  width:210mm;
+  height:297mm;
+  margin:28px auto;
+  background:var(--paper);
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(60,45,30,.18);
+  padding:18mm 16mm 14mm;
+  display:flex;
+  flex-direction:column;
+}
+/* 屏幕端装饰底纹 */
+.page::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(34,28,21,.05) 1px,transparent 1px);
+  background-size:22px 22px;
+  pointer-events:none;
+}
+/* 打印 */
+@page{size:A4;margin:0;}
+@media print{
+  body{background:#fff;}
+  .page{margin:0;box-shadow:none;page-break-after:always;break-after:page;border-radius:0;}
+  .page:last-child{page-break-after:auto;break-after:auto;}
+  .float-anim{animation:none !important;}
+}
+@media screen{
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+}
+/* ===== 通用元素 ===== */
+.serif{font-family:var(--serif);}
+.tag{
+  display:inline-block;
+  font-size:11px;font-weight:700;letter-spacing:.25em;
+  padding:5px 14px;border-radius:999px;
+  border:1.5px solid var(--ink);
+}
+.pageno{
+  position:absolute;bottom:9mm;right:16mm;
+  font-size:10px;letter-spacing:.2em;color:var(--muted);
+}
+.corner-mark{
+  position:absolute;top:9mm;right:16mm;
+  font-size:10px;letter-spacing:.3em;color:var(--muted);
+}
+.hl{
+  background:linear-gradient(transparent 62%,var(--pink) 62%,var(--pink) 92%,transparent 92%);
+  font-weight:700;
+}
+.hl-o{background:linear-gradient(transparent 62%,var(--orange-soft) 62%,var(--orange-soft) 92%,transparent 92%);font-weight:700;}
+.hl-g{background:linear-gradient(transparent 62%,var(--green-soft) 62%,var(--green-soft) 92%,transparent 92%);font-weight:700;}
+
+/* ===== 封面 ===== */
+.cover{justify-content:space-between;background:var(--cream);}
+.cover .deco-circle{position:absolute;border-radius:50%;}
+.c1{width:70mm;height:70mm;background:var(--pink);top:-22mm;right:-18mm;opacity:.9;}
+.c2{width:40mm;height:40mm;background:var(--orange);top:40mm;right:22mm;opacity:.85;}
+.c3{width:26mm;height:26mm;background:var(--green);top:22mm;right:62mm;opacity:.85;}
+.c4{width:16mm;height:16mm;border:3px solid var(--ink);top:64mm;right:56mm;background:transparent;}
+.cover-top{position:relative;z-index:2;}
+.cover-title{
+  font-family:var(--serif);font-weight:900;
+  font-size:52px;line-height:1.35;letter-spacing:.04em;
+  margin-top:14mm;
+}
+.cover-title .accent{color:var(--orange);}
+.cover-sub{
+  margin-top:8mm;font-size:15px;font-weight:500;line-height:2.1;max-width:130mm;
+}
+.cover-invite{
+  margin-top:6mm;display:inline-block;
+  background:var(--ink);color:var(--cream);
+  font-size:12px;letter-spacing:.3em;padding:8px 18px;border-radius:999px;
+}
+.cover-img{
+  position:relative;z-index:2;
+  width:100%;border-radius:18px;overflow:hidden;
+  border:2.5px solid var(--ink);
+  margin-top:6mm;
+}
+.cover-img img{width:100%;display:block;height:112mm;object-fit:cover;}
+.cover-foot{
+  position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;letter-spacing:.25em;color:var(--muted);margin-top:6mm;
+}
+.time-chip{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--serif);font-weight:900;
+}
+.time-chip .clock{
+  width:34px;height:34px;border-radius:50%;
+  border:2.5px solid var(--ink);
+  position:relative;background:var(--paper);flex:none;
+}
+.time-chip .clock::before{
+  content:"";position:absolute;left:50%;top:50%;
+  width:2px;height:9px;background:var(--ink);
+  transform-origin:bottom center;transform:translate(-50%,-100%) rotate(40deg);
+}
+.time-chip .clock::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:2px;height:6px;background:var(--ink);
+  transform-origin:bottom center;transform:translate(-50%,-100%) rotate(var(--m,130deg));
+}
+.time-chip .clock::before{transform:translate(-50%,-100%) rotate(var(--h,40deg));}
+
+/* ===== 场景页 ===== */
+.scene-head{
+  position:relative;z-index:2;
+  display:flex;align-items:baseline;gap:8mm;
+  border-bottom:2.5px solid var(--ink);
+  padding-bottom:5mm;margin-bottom:7mm;
+}
+.time-chip.big .clock{width:44px;height:44px;border-color:var(--acc,var(--orange));}
+.time-chip.big .clock::before,.time-chip.big .clock::after{background:var(--acc,var(--orange));}
+.time-num{
+  font-size:46px;line-height:1;color:var(--acc,var(--orange));letter-spacing:.02em;
+}
+.scene-head h2{
+  font-family:var(--serif);font-weight:900;font-size:26px;line-height:1.5;
+}
+.scene-head .no{
+  margin-left:auto;font-family:var(--serif);font-weight:900;
+  font-size:15px;color:var(--muted);letter-spacing:.1em;flex:none;
+}
+.scene-body{
+  position:relative;z-index:2;flex:1;
+  display:flex;gap:9mm;align-items:center;
+}
+.scene-body.flip{flex-direction:row-reverse;}
+.scene-fig{
+  flex:none;width:92mm;
+  border-radius:16px;overflow:hidden;
+  border:2.5px solid var(--ink);
+  background:var(--cream);
+}
+.scene-fig img{width:100%;height:auto;object-fit:initial;display:block;}
+.scene-text{flex:1;font-size:15px;display:flex;flex-direction:column;justify-content:center;}
+.scene-text p{margin:3.2mm 0;text-align:justify;}
+.scene-text p:first-child{margin-top:0;}
+.scene-text p:last-child{margin-bottom:0;}
+.scene-text em{
+  font-style:normal;font-family:var(--serif);font-weight:700;
+  font-size:16px;color:var(--acc,var(--orange));
+  display:block;margin:3mm 0;
+}
+.quote-band{
+  position:relative;z-index:2;margin-top:6mm;
+  background:var(--acc-soft,var(--pink));
+  border:2.5px solid var(--ink);border-radius:14px;
+  padding:4mm 6mm;
+  font-family:var(--serif);font-weight:900;font-size:15.5px;line-height:1.8;
+}
+@media screen{
+  .float-anim{animation:floaty 5s ease-in-out infinite;}
+  .c2{animation-delay:.8s;}.c3{animation-delay:1.6s;}
+}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+/* ===== 结尾页 ===== */
+.ending{background:var(--cream);justify-content:center;align-items:center;text-align:center;}
+.ending .moon{
+  width:34mm;height:34mm;border-radius:50%;
+  background:var(--night);position:relative;margin-bottom:10mm;
+}
+.ending .moon::after{
+  content:"";position:absolute;width:26mm;height:26mm;border-radius:50%;
+  background:var(--cream);top:-4mm;right:-3mm;
+}
+.ending h2{font-family:var(--serif);font-weight:900;font-size:34px;margin-bottom:8mm;}
+.ending .body-text{max-width:130mm;font-size:14.5px;text-align:justify;}
+.ending .body-text p{margin:3mm 0;}
+.ending .end-mark{
+  margin-top:12mm;font-family:var(--serif);font-weight:900;font-size:20px;letter-spacing:.5em;
+}
+.ending .final-line{
+  margin-top:10mm;display:inline-block;
+  background:var(--ink);color:var(--cream);
+  font-size:13px;letter-spacing:.15em;line-height:2;
+  padding:10px 22px;border-radius:14px;max-width:150mm;
+}
+.qr-block{
+  margin-top:10mm;display:flex;align-items:center;gap:7mm;
+  background:#fff;border:2.5px solid var(--ink);border-radius:16px;
+  padding:5mm 8mm;
+}
+.qr-block img{width:27mm;height:27mm;display:block;flex:none;}
+.qr-block .qr-txt{font-family:var(--serif);font-weight:900;font-size:19px;line-height:1.6;text-align:left;}
+.qr-block .qr-sub{font-family:var(--sans);font-weight:400;font-size:11px;color:var(--muted);letter-spacing:.12em;margin-top:2mm;}
+</style>
+</head>
+<body>
+
+<!-- ========== 第 1 页 · 封面 ========== -->
+<section class="page cover reveal">
+  <div class="deco-circle c1 float-anim"></div>
+  <div class="deco-circle c2 float-anim"></div>
+  <div class="deco-circle c3 float-anim"></div>
+  <div class="deco-circle c4"></div>
+
+  <div class="cover-top">
+    <span class="tag">一天 · 全程直播</span>
+    <h1 class="cover-title">我被<span class="accent">算法</span>安排得<br>明明白白的一天</h1>
+    <p class="cover-sub">我原以为我在自由地过日子，其实只是在一套提前写好的选项里，热情地点击。</p>
+    <span class="cover-invite">以下是我的一天，欢迎围观</span>
+  </div>
+
+  <div class="cover-img">
+    <img src="assets/cover.jpg" alt="清晨，闹钟响起，伸手去够手机">
+  </div>
+
+
+  <div class="cover-foot">
+    <span>从 07:40 到 23:40</span>
+    <span>自动运转 · 无孔不入</span>
+  </div>
+</section>
+<style>
+.scene.dense .scene-text{font-size:13.8px;}
+.scene.dense .scene-text p{margin:2.4mm 0;}
+.scene.roomy .scene-text{font-size:16.5px;}
+.scene.acc-pink{--acc:var(--pink-deep);--acc-soft:var(--pink);}
+.scene.acc-orange{--acc:var(--orange);--acc-soft:var(--orange-soft);}
+.scene.acc-green{--acc:var(--green);--acc-soft:var(--green-soft);}
+.scene.acc-night{--acc:var(--night);--acc-soft:var(--pink);}
+</style>
+
+<!-- ========== 第 2 页 · 07:40 ========== -->
+<section class="page scene reveal acc-orange">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:230deg;--m:240deg;"><span class="clock"></span><span class="time-num">07:40</span></div>
+    <h2>起床第一声，是算法替我打的招呼</h2>
+  </header>
+  <div class="scene-body">
+    <div class="scene-text">
+      <p>闹钟响了三遍，我眯着眼睛摸到手机，音乐App的日推已经候在那里了。</p>
+      <p>巧了，正是我最近循环的那种调调。我一边刷牙一边想：它怎么知道？然后反应过来——它知道，是因为我过去的每一次播放、每一次切歌、每一次深夜单曲循环，都喂给了它。</p>
+      <p><span class="hl-o">不是意识决定生活，而是生活决定意识。</span>不是今天的我想听歌，是昨天的我用数据写好了今天的我的品味。</p>
+      <p>有些需求是我们真实需要的，有些需求是系统制造出来再喂给我们的“虚假需求”。我想听这首歌的感觉无比真实，但这份“真实”真的是真实的吗？</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/morning.jpg" alt="刷牙时听着日推音乐"></figure>
+  </div>
+  <span class="pageno">02 / 09</span>
+</section>
+
+<!-- ========== 第 3 页 · 10:05 ========== -->
+<section class="page scene dense reveal acc-pink">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:303deg;--m:30deg;"><span class="clock"></span><span class="time-num">10:05</span></div>
+    <h2>上课走神：四条App同时向我伸出手</h2>
+  </header>
+  <div class="scene-body flip">
+    <div class="scene-text">
+      <p>第二节课，老师讲到重点，手机在桌肚里轻轻一震。</p>
+      <p>本来只想瞟一眼，结果小红书推了我收藏过的同款穿搭，知乎推了我感兴趣的“中国人民大学的衰落是不可逆的吗”，抖音推了昨晚刷到一半的系列，淘宝还补了一刀，“你关注的商品降价了”。</p>
+      <p>四路大军同时抵达，我的大脑非常诚实——课，听不进去了。</p>
+      <p><span class="hl">单向度的人不是被禁止思考的人，而是丧失思考维度的人。</span>虽然没有一个App逼我点开，但它们合力让我“只能”点开，我无法拒绝它们的邀请。</p>
+      <p>我损失的其实不是那十分钟，而是“把注意力放在一件事上”这个能力本身。</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/class.jpg" alt="课桌抽屉里手机震动，四路推送伸手"></figure>
+  </div>
+  <span class="pageno">03 / 09</span>
+</section>
+
+<!-- ========== 第 4 页 · 12:00 ========== -->
+<section class="page scene dense reveal acc-green">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:360deg;--m:360deg;"><span class="clock"></span><span class="time-num">12:00</span></div>
+    <h2>“看了又看”：我成了自己浏览记录的陌生人</h2>
+  </header>
+  <div class="scene-body">
+    <div class="scene-text">
+      <p>中午躺床上刷淘宝，根本没打算买任何东西，但还是忍不住逛了起来。点进去，全是我上周偷偷搜过的东西。</p>
+      <p>最诡异的是其中一双鞋。我发誓只是点进去看了三秒，觉得太贵就划走了。可它现在还挂在那里，等我。</p>
+      <p>马克思讲异化时说，人创造的东西反过来支配人本身。</p>
+      <p>我的浏览记录明明是我一条一条点出来的，可当它以“猜你喜欢”的面目站到我面前时，我居然觉得陌生：</p>
+      <em>这人品味挺杂啊……等等，这人是我。</em>
+      <p>原来我已经分裂成两个人：一个正在刷手机的我，和一个被存进数据库、24小时在线替我做决定的我。</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/noon.jpg" alt="躺在床上刷购物App，商品漂浮围绕"></figure>
+  </div>
+  <span class="pageno">04 / 09</span>
+</section>
+
+<!-- ========== 第 5 页 · 15:20 ========== -->
+<section class="page scene reveal acc-orange">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:100deg;--m:120deg;"><span class="clock"></span><span class="time-num">15:20</span></div>
+    <h2>跨App读心：我说的话，怎么成了淘宝的首页</h2>
+  </header>
+  <div class="scene-body flip">
+    <div class="scene-text">
+      <p>中午我只是在微信上和室友随口说了一句“最近想买一瓶香水”，下午打开淘宝，首页第一屏就是它。</p>
+      <p>马克思分析商品拜物教时说，人与人的关系会神秘地变成物与物的关系。我和室友的私人对话，被拆解成关键词，在看不见的系统里和商品库面面相觑。</p>
+      <p>我以为权力是个具体的人，在某个机房里盯着我。其实它早就不是了，弥散在整个系统的网络里，自动运转，无孔不入。</p>
+      <p><span class="hl-o">没有监听员，没有反派，只有一条安静流淌的数据管道。</span></p>
+      <p>而我每天睁开眼做的第一件事，就是亲手为这条管道投喂数据。</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/pipeline.jpg" alt="聊天记录变成传送带上的商品流入手机"></figure>
+  </div>
+  <span class="pageno">05 / 09</span>
+</section>
+
+<!-- ========== 第 6 页 · 18:30 ========== -->
+<section class="page scene roomy reveal acc-green">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:195deg;--m:180deg;"><span class="clock"></span><span class="time-num">18:30</span></div>
+    <h2>晚饭吃什么？选项无限，自由消失</h2>
+  </header>
+  <div class="scene-body">
+    <div class="scene-text">
+      <p>傍晚，外卖App准时推送，附近5家新店，猜你喜欢。</p>
+      <p>我点开，滑动，点开，滑动。麻辣烫、轻食、煲仔饭、炸鸡……半小时后，我更加不知道吃什么了。</p>
+      <p><span class="hl-g">我们拥有的选择前所未有的多，我们却前所未有的不自由。</span>因为所有选项都在同一个框架里转圈。而真正的问题，我为什么非要通过外卖解决晚饭，却从来没有被我思考过。</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/food.jpg" alt="被旋转的美食图标包围的人"></figure>
+  </div>
+  <span class="pageno">06 / 09</span>
+</section>
+
+<!-- ========== 第 7 页 · 21:00 ========== -->
+<section class="page scene dense reveal acc-pink">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:270deg;--m:360deg;"><span class="clock"></span><span class="time-num">21:00</span></div>
+    <h2>我想看会儿书，但手机不同意</h2>
+  </header>
+  <div class="scene-body flip">
+    <div class="scene-text">
+      <p>晚上九点，我下定决心，今晚不刷手机，看一小时书。</p>
+      <p>书摊开，手机倒扣在桌上。十分钟里，它震了四次：群消息、App推送、快递到了、有人@我。我一次次伸手把它翻过来，又一次次强迫自己扣回去。看书的这一个小时，我有一半时间在跟自己谈判。</p>
+      <p>福柯讲规训社会，最经典的意象是全景敞视监狱。一座高塔，让人时刻感觉可能正被看着，于是自己管好自己。而我的书桌上没有高塔，我随身携带的这部手机就是瞭望塔——它不一定真的在看我，但只要它随时可能响，我就永远坐不端正。</p>
+      <p>我的闲暇并没有真正来到我身边。我躺在床上点赞、停留的每一秒，都在为某个后台生产数据。下课之后，我仍然在一台更大的机器上，做一份没有工资的工作。</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/night.jpg" alt="手机像瞭望塔一样照看书桌"></figure>
+  </div>
+  <span class="pageno">07 / 09</span>
+</section>
+
+<!-- ========== 第 8 页 · 23:40 ========== -->
+<section class="page scene roomy reveal acc-night">
+  <span class="corner-mark">我被算法安排得明明白白的一天</span>
+  <header class="scene-head">
+    <div class="time-chip big" style="--h:350deg;--m:240deg;"><span class="clock"></span><span class="time-num">23:40</span></div>
+    <h2>“最后一条”永远没有最后一条</h2>
+  </header>
+  <div class="scene-body">
+    <div class="scene-text">
+      <p>我对着屏幕说“刷完这条就睡”——说这话的时候，推荐算法可能正在笑。因为最后一条是它定义的，而下一条永远比这一条更符合我的口味。</p>
+      <p>一小时后我放下手机，眼睛酸，心里空。这一小时，我没生产任何东西，没记住任何东西，没和任何人说话。<span class="hl">我的时间没有消失，它只是不再属于我，</span>成了别人后台报表里一个增长的数字。</p>
+      <p>不是谁强迫我劳动，是我心甘情愿地，把自己一天的最后一块完整时间，主动上交了。</p>
+    </div>
+    <figure class="scene-fig"><img src="assets/late.jpg" alt="深夜被手机屏幕照亮的人"></figure>
+  </div>
+  <span class="pageno">08 / 09</span>
+</section>
+
+<!-- ========== 第 9 页 · 写在最后 ========== -->
+<section class="page ending reveal">
+  <div class="moon"></div>
+  <h2>写在最后</h2>
+  <div class="body-text">
+    <p>记完这一天我才明白，最厉害的控制不是拿走你的选择，而是让你对给你的选择感激不尽。</p>
+    <p>人创造环境，同样环境也创造人。人原本一边活着一边改造世界，可是在算法时代，我们被世界改造的速度，远快过改造它的速度。</p>
+  </div>
+  <div class="end-mark">—— END ——</div>
+  <span class="final-line">本文系课程作业，如有雷同，说明你的日子也被安排了。欢迎对号入座。</span>
+  <div class="qr-block">
+    <img src="assets/qrcode.png" alt="网页二维码">
+    <div>
+      <div class="qr-txt">欢迎扫码浏览</div>
+      <div class="qr-sub">在手机上重温被算法安排的这一天</div>
+    </div>
+  </div>
+  <span class="pageno">09 / 09</span>
+</section>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.08});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>
